@@ -1,14 +1,5 @@
 %p#notice= notice
 
-%p
-  %b First name:
-  = @profile.first_name
-%p
-  %b Last name:
-  = @profile.last_name
-%p
-  %b Bio:
-  = @profile.bio
 
 = link_to 'Edit', edit_profile_path(@profile)
 \|
