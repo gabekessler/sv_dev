@@ -1,11 +1,15 @@
 ShopVibe::Application.routes.draw do
-  devise_for :users
+  resources :profiles
 
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   
-  root :to => "home#index"
+  resources :users
+  
+  devise_for :users
+  
+  root :to => "users#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -10,6 +10,8 @@ gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 gem "meta_search",    '>= 1.1.0.pre'
 gem 'mysql2'
 gem 'capistrano'
+gem 'paperclip'
+gem 'haml-rails'
 
 
 # Gems used only for assets and not required
