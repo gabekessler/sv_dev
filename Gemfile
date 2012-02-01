@@ -12,6 +12,7 @@ gem 'mysql2'
 gem 'capistrano'
 gem 'paperclip'
 gem 'haml-rails'
+gem 'html5-rails'
 
 
 # Gems used only for assets and not required
@@ -19,6 +20,8 @@ gem 'haml-rails'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'compass', '0.12.alpha.4'
+  gem 'compass-h5bp'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
