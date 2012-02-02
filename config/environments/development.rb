@@ -39,4 +39,7 @@ ShopVibe::Application.configure do
   config.watchable_dirs[File.join(config.root, "app/admin")] = ["rb"]
   
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
+  FB_KEY = '311652035552967'
+  FB_SECRET = '078e1dfd0c1f018bcc949bab7dd0c965'
 end

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  
+  has_many :authentications
   has_one :profile, :dependent => :destroy
   
   # Include default devise modules. Others available are:
@@ -9,5 +9,9 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  
+  def apply_omniauth(omniauth)  
+    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])  
+  end
   
 end

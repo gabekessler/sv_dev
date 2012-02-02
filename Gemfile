@@ -13,6 +13,7 @@ gem 'capistrano'
 gem 'paperclip'
 gem 'haml-rails'
 gem 'html5-rails'
+gem 'omniauth-facebook'
 
 
 # Gems used only for assets and not required
