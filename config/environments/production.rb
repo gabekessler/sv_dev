@@ -66,4 +66,7 @@ ShopVibe::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
+  FB_KEY = '311652035552967'
+  FB_SECRET = '078e1dfd0c1f018bcc949bab7dd0c965'
 end
