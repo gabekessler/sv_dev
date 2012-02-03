@@ -5,7 +5,9 @@ class AuthenticationsController < InheritedResources::Base
   end
 
   def create
+    logger.debug { "CREAAAAAATEE" }
     omniauth = request.env["omniauth.auth"]
+    logger.debug { "OMNI ------- #{omniauth}" }
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
       flash[:notice] = "Signed in successfully."

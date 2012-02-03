@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
+Page.create!(:title => 'Home Page', :heading => 'Welcome To Shop Vibe')
