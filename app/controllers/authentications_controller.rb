@@ -1,4 +1,4 @@
-class AuthenticationsController < InheritedResources::Base
+class AuthenticationsController < ApplicationController
   
   def index
     @authentications = current_user.authentications if current_user
@@ -8,6 +8,7 @@ class AuthenticationsController < InheritedResources::Base
     omniauth = request.env["omniauth.auth"]
     logger.debug "OMNI ------- #{omniauth.to_yaml}"
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
+    logger.debug "AUTH ------- #{authentication.to_yaml}"
     if authentication
       flash[:notice] = "Signed in successfully."
       sign_in_and_redirect(:user, authentication.user)
@@ -20,7 +21,7 @@ class AuthenticationsController < InheritedResources::Base
       user.apply_omniauth(omniauth)
       if user.save
         flash[:notice] = "Signed in successfully."
-        sign_in_and_redirect(:user, user)
+        redirect_to authentication_add_friends_url(user)
       else
         session[:omniauth] = omniauth
         redirect_to new_user_registration_url
@@ -32,6 +33,9 @@ class AuthenticationsController < InheritedResources::Base
     @authentication = current_user.authentications.find(params[:id])
     @authentication.destroy
     redirect_to authentications_url, :notice => "Successfully destroyed authentication."
+  end
+  
+  def add_friends
   end
   
 end

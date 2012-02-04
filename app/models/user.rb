@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :authentications
+  has_many :authentications, :dependent => :destroy
   has_one :profile, :dependent => :destroy
   
   # Include default devise modules. Others available are:
@@ -21,12 +21,17 @@ class User < ActiveRecord::Base
   def facebook
     @fb_user ||= FbGraph::User.me(self.authentications.find_by_provider('facebook').token)
   end
+  
+  def password_required?
+    (authentications.empty? || !password.blank?) && super
+  end
 
 
   protected
 
   def apply_facebook(omniauth)
-    if (extra = omniauth['extra']['user_hash'] rescue false)
+    if (extra = omniauth['extra']['raw_info'] rescue false)
+      logger.debug "EMAIL ---- #{extra['email']}"
       self.email = (extra['email'] rescue '')
     end
   end

@@ -1,6 +1,8 @@
 ShopVibe::Application.routes.draw do
   match '/auth/:provider/callback' => 'authentications#create'
-  resources :authentications
+  resources :authentications do
+    get :add_friends
+  end
   resources :profiles
   devise_for :users, :controllers => { :registrations => 'registrations' }
   
