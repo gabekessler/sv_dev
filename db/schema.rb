@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120203210925) do
+ActiveRecord::Schema.define(:version => 20120206034745) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -67,13 +67,14 @@ ActiveRecord::Schema.define(:version => 20120203210925) do
     t.string   "first_name"
     t.string   "last_name"
     t.text     "bio"
-    t.integer  "user_id",             :null => false
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.integer  "user_id",                            :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "number_of_friends",   :default => 0
   end
 
   create_table "users", :force => true do |t|
@@ -90,6 +91,8 @@ ActiveRecord::Schema.define(:version => 20120203210925) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "username"
+    t.string   "fb_uid"
+    t.string   "fb_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,5 +1,9 @@
 %p#notice= notice
-
+%h1
+  Profile for
+  = current_user.email
+%div
+  = render 'add_fb_friends_link'
 
 = link_to 'Edit', edit_profile_path(@profile)
 \|

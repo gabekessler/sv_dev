@@ -20,8 +20,11 @@ class AuthenticationsController < ApplicationController
       user = User.new
       user.apply_omniauth(omniauth)
       if user.save
+        @profile = Profile.create(:user_id => user.id)
+        logger.debug "PROFILE -------   #{@profile}"
+        user.create_with_omniauth(omniauth)
         flash[:notice] = "Signed in successfully."
-        redirect_to authentication_add_friends_url(user)
+        sign_in_and_redirect(:user, user)
       else
         session[:omniauth] = omniauth
         redirect_to new_user_registration_url

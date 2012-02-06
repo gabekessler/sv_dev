@@ -1,6 +1,6 @@
 %header#header
   - if current_user
-    = current_user.email
+    = link_to current_user.email, profile_url(current_user.profile)
     %br/
     = link_to "Logout", destroy_user_session_url, :method => :delete
   - else

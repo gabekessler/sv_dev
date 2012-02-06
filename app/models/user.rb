@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     (authentications.empty? || !password.blank?) && super
   end
   
-  def self.create_with_omniauth(omniauth)  
+  def create_with_omniauth(omniauth)  
     create! do |user|
       logger.debug "EXTRA ---------- #{omniauth['extra']['raw_info'].to_yaml}"
       user.profile.first_name = omniauth['extra']['raw_info']['first_name']
@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
 
   def apply_facebook(omniauth)
     if (extra = omniauth['extra']['raw_info'] rescue false)
+      self.email = (extra['email'] rescue '')
     end
   end
   
