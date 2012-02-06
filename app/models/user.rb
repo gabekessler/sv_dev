@@ -25,14 +25,23 @@ class User < ActiveRecord::Base
   def password_required?
     (authentications.empty? || !password.blank?) && super
   end
+  
+  def self.create_with_omniauth(omniauth)  
+    create! do |user|
+      logger.debug "EXTRA ---------- #{omniauth['extra']['raw_info'].to_yaml}"
+      user.profile.first_name = omniauth['extra']['raw_info']['first_name']
+      user.profile.last_name = omniauth['extra']["raw_info"]["last_name"]
+      user.email = omniauth['extra']["raw_info"]["email"]
+      user.fb_uid = omniauth["uid"]
+      user.fb_token = omniauth["credentials"]["token"]
+    end
+  end
 
 
   protected
 
   def apply_facebook(omniauth)
     if (extra = omniauth['extra']['raw_info'] rescue false)
-      logger.debug "EMAIL ---- #{extra['email']}"
-      self.email = (extra['email'] rescue '')
     end
   end
   
