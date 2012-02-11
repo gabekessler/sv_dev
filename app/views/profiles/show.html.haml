@@ -3,8 +3,12 @@
   Profile for
   = current_user.email
 %div
+  = image_tag @profile.avatar.url(:large)
+  %br/
+  = @profile.bio
+%div
   = render 'add_fb_friends_link'
 
-= link_to 'Edit', edit_profile_path(@profile)
-\|
-= link_to 'Back', profiles_path
+  = link_to 'Edit', edit_profile_path(@profile)
+  \|
+  = link_to 'Back', profiles_path

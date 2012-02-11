@@ -8,7 +8,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :fb_uid, :fb_token, :profile_id, :username
+  
+  extend FriendlyId
+  friendly_id :email, use: :slugged
   
   def apply_omniauth(omniauth)
     case omniauth['provider']
@@ -26,15 +29,18 @@ class User < ActiveRecord::Base
     (authentications.empty? || !password.blank?) && super
   end
   
-  def create_with_omniauth(omniauth)  
-    self.create do |user|
-      logger.debug "EXTRA ---------- #{omniauth['extra']['raw_info'].to_yaml}"
-      user.profile.first_name = omniauth['extra']['raw_info']['first_name']
-      user.profile.last_name = omniauth['extra']["raw_info"]["last_name"]
-      user.email = omniauth['extra']["raw_info"]["email"]
-      user.fb_uid = omniauth["uid"]
-      user.fb_token = omniauth["credentials"]["token"]
-    end
+  def update_with_omniauth(omniauth)
+    self.update_attributes(
+      :email => omniauth['extra']["raw_info"]["email"],
+      :fb_uid => omniauth["uid"],
+      :fb_token => omniauth["credentials"]["token"],
+      :username => omniauth['extra']["raw_info"]["username"]
+    )
+    self.profile.update_attributes(
+      :first_name => omniauth['extra']['raw_info']['first_name'],
+      :last_name => omniauth['extra']["raw_info"]["last_name"],
+      :bio => omniauth['extra']["raw_info"]["bio"]
+    )
   end
 
 

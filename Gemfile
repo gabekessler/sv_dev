@@ -15,6 +15,7 @@ gem 'haml-rails'
 gem 'html5-rails'
 gem 'omniauth-facebook'
 gem 'fb_graph'
+gem 'friendly_id'
 
 
 # Gems used only for assets and not required
