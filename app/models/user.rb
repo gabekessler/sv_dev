@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
   
   def create_with_omniauth(omniauth)  
-    create! do |user|
+    self.create do |user|
       logger.debug "EXTRA ---------- #{omniauth['extra']['raw_info'].to_yaml}"
       user.profile.first_name = omniauth['extra']['raw_info']['first_name']
       user.profile.last_name = omniauth['extra']["raw_info"]["last_name"]

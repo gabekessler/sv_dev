@@ -10,5 +10,5 @@
       status:true
     });
 
-    FB.ui({ method: 'apprequests', message: '<%= escape_javascript(current_user.email) %> thinks you are really Awesome.'});
+    FB.ui({ method: 'apprequests', message:  "This person thinks you are really Awesome."});
   });
