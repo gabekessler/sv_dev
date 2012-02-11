@@ -42,6 +42,24 @@ class User < ActiveRecord::Base
       :bio => omniauth['extra']["raw_info"]["bio"]
     )
   end
+  
+  def full_name
+    self.profile.first_name + " " + self.profile.last_name
+  end
+  
+  def facebook_friends
+    # REFACTOR
+    @facebook_friends = []
+    @all_users = User.all
+    @user = FbGraph::User.new('me', :access_token => self.fb_token).fetch
+    @friends = @user.friends.collect(&:identifier)
+    @sv_friends = @all_users.collect {|user| @friends.include?(user.fb_uid) ? user.id : nil}.compact
+    @sv_friends.each do |sv_friend|
+      user = User.find(sv_friend)
+      @facebook_friends << user
+    end
+    @facebook_friends
+  end
 
 
   protected

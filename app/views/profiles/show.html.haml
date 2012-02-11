@@ -1,11 +1,16 @@
 %p#notice= notice
 %h1
   Profile for
-  = current_user.email
+  = @user.email
 %div
   = image_tag @profile.avatar.url(:large)
   %br/
   = @profile.bio
+  
+%div
+  %h2 Your Friends
+  - @user.facebook_friends.each do |friend|
+    = link_to friend.full_name, profile_url(friend)
 %div
   = render 'add_fb_friends_link'
 
