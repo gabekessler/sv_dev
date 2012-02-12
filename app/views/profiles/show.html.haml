@@ -1,6 +1,9 @@
-%h1
-  Profile for
-  = @user.email
+- content_for :heading do
+  - if @user == current_user
+    My Profile
+  - else
+    = @user.full_name
+
 %div
   = image_tag @profile.avatar.url(:large)
   %br/

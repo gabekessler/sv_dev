@@ -6,4 +6,48 @@
 // Document styles
 //-----------------------------------------
 html {}
-body {}
+body {
+}
+
+#container {
+	@include showgrid;
+	@include container;
+}
+
+#toolbar_area {
+	width: 100%;
+	background-color: orange;
+	height: 40px;
+	
+	#toolbar {
+		@include container;
+		
+		#logo {
+			@include column(3);
+		}
+		#login_area {
+			@include column(3);
+			@include push(18);
+			text-align: right;
+		}
+	}
+}
+
+#header {
+	@include container;
+	height: 60px;
+	@include prepend-top(10px);
+	
+	#user_nav {
+		@include column(4);
+		border: 1px solid $font-color;
+		padding: 3px;
+	}
+	
+	h1 {
+		line-height: 60px;
+		font-size: 24px;
+		margin: 0;
+		@include column(16)
+	}
+}

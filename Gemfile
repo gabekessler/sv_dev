@@ -20,6 +20,7 @@ gem 'jquery-rails'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  # gem 'compass-rails'
   gem 'compass', '0.12.alpha.4'
   gem 'compass-h5bp'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
