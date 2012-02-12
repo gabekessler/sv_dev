@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
   has_one :profile, :dependent => :destroy
+  has_many(:friendships, :foreign_key => :user_id, :dependent => :destroy)
+  has_many(:reverse_friendships, :class_name => :Friendship, :foreign_key => :friend_id_id, :dependent => :destroy)
+  has_many :friends, :through => :friendships, :source => :friend_id, :class_name => :User
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -48,7 +51,7 @@ class User < ActiveRecord::Base
   end
   
   def facebook_friends
-    # REFACTOR
+    # REFACTOR FOR LARGER POOL OF USERS. MAYBE CREATE FRIENDSHIP ON CALLBACK FROM FB FRIEND SIGN UP
     @facebook_friends = []
     @all_users = User.all
     @user = FbGraph::User.new('me', :access_token => self.fb_token).fetch
