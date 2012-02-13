@@ -43,9 +43,8 @@ body {
 	@include append-bottom(10px);	
 	
 	#user_nav {
-		@include column($six);
+		@include column(5);
 		border: 1px solid $font-color;
-		padding: 4px;
 	}
 	
 	h1 {
@@ -53,12 +52,12 @@ body {
 		font-size: 24px;
 		margin: 0;
 		padding: 0;
-		@include column(12);
+		@include column(14);
 	}
 	
 	#search {
 		 background-color: #eee;
-		@include column(6);
+		@include column(5);
 		height: 60px;
 		@include last;
 	}
@@ -75,7 +74,7 @@ body {
 
 .item {
 	width: 205px;
-	 background-color: #ddd;
+	 background-color: #eee;
 	margin: 0 15px 15px 0;
 	float: left;
 	@include border;
