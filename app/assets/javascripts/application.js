@@ -21,8 +21,7 @@ var $container = $('#content');
 
 $container.imagesLoaded(function(){
       $container.masonry({
-        itemSelector: '.item',
-        columnWidth: 50
+        itemSelector: '.item'
       });
     });
 

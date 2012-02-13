@@ -1,4 +1,6 @@
 ShopVibe::Application.routes.draw do
+  resources :products
+
   match '/auth/:provider/callback' => 'authentications#create'
   post "pages/authorize"
   resources :authentications do

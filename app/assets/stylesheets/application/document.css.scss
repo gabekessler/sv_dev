@@ -11,7 +11,7 @@ body {
 
 #main {
 	@include container;
-	@include grid-background;
+/*	@include grid-background;*/
 	width: 90%;
 	padding: 0;	
 }
@@ -65,24 +65,27 @@ body {
 }
 
 .sidebar {
-	@include column(5);
+	@include column(4);
+	background-color: red;
 }
 
 #content {
-	@include column(18);
+	@include column(20);
 	@include last;
 }
 
 .item {
 	width: 200px;
-	 background-color: grey;
-	margin: 0 10px 10px 0;
+	 background-color: #ddd;
+	margin: 0 10px 15px 0;
 	float: left;
 	@include border;
 	padding: 10px;
 }
 
-
+.navigation {
+  visibility: hidden;
+}
 
 
 
