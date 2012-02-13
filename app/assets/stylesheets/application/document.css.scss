@@ -27,6 +27,7 @@ body {
 		#logo {
 			@include column($six);			
 		}
+		
 		#login_area {
 			@include column($six);
 			@include float-right;
@@ -39,10 +40,12 @@ body {
 	@include container;
 	height: 60px;
 	@include prepend-top(10px);	
+	@include append-bottom(10px);	
 	
 	#user_nav {
 		@include column($six);
 		border: 1px solid $font-color;
+		padding: 4px;
 	}
 	
 	h1 {
@@ -51,22 +54,18 @@ body {
 		margin: 0;
 		padding: 0;
 		@include column(12);
-		background-color: red;
-				
 	}
 	
 	#search {
-		 background-color: red;
+		 background-color: #eee;
 		@include column(6);
 		height: 60px;
 		@include last;
 	}
-
 }
 
 .sidebar {
 	@include column(4);
-	background-color: red;
 }
 
 #content {
@@ -87,6 +86,9 @@ body {
   visibility: hidden;
 }
 
+#footer {
+	@include container;
+}
 
 
 

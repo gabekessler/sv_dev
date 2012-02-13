@@ -3,7 +3,12 @@ namespace :db do
   puts 'creating...'
   task :populate => :environment do
     100.times do
-      Page.create
+      title = Faker::Company.name
+      number = Faker::PhoneNumber.phone_number
+      Product.create(
+        :title => title,
+        :number => number
+      )
     end
   end
 end

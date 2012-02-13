@@ -20,8 +20,8 @@
     \|
     = link_to 'Back', profiles_path
 #content
-  - @pages.each do
+  - @products.each do |page|
     .item{:style => "height: #{rand(100) + 200}px;"}
-      my time is up
+      = page.title
 .navigation
-  = will_paginate @pages
+  = will_paginate @products
