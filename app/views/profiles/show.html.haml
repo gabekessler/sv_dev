@@ -3,20 +3,25 @@
     My Profile
   - else
     = @user.full_name
-
-%div
-  = image_tag @profile.avatar.url(:large)
-  %br/
-  = @profile.bio
-  
-%div
-  %h2 Your Friends
-  - @user.facebook_friends.each do |friend|
-    = link_to friend.full_name, profile_url(friend)
+    
+.sidebar
+  .item
+    = image_tag @profile.avatar.url(:large)
     %br/
-%div
-  = render 'add_fb_friends_link'
-
-  = link_to 'Edit', edit_profile_path(@profile)
-  \|
-  = link_to 'Back', profiles_path
+    = @profile.bio
+    
+    %h3 Your Friends
+    - @user.facebook_friends.each do |friend|
+      = link_to friend.full_name, profile_url(friend)
+      %br/
+    = render 'add_fb_friends_link'
+    
+    = link_to 'Edit', edit_profile_path(@profile)
+    \|
+    = link_to 'Back', profiles_path
+#content
+  - @pages.each do
+    .item{:style => "height: #{rand(100) + 200}px;"}
+      my time is up
+.navigation
+  = will_paginate @pages

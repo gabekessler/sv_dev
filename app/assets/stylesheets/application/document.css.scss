@@ -9,9 +9,11 @@ html {}
 body {
 }
 
-#container {
-	@include showgrid;
+#main {
 	@include container;
+	@include grid-background;
+	width: 90%;
+	padding: 0;	
 }
 
 #toolbar_area {
@@ -23,11 +25,11 @@ body {
 		@include container;
 		
 		#logo {
-			@include column(3);
+			@include column($six);			
 		}
 		#login_area {
-			@include column(3);
-			@include push(18);
+			@include column($six);
+			@include float-right;
 			text-align: right;
 		}
 	}
@@ -36,18 +38,56 @@ body {
 #header {
 	@include container;
 	height: 60px;
-	@include prepend-top(10px);
+	@include prepend-top(10px);	
 	
 	#user_nav {
-		@include column(4);
+		@include column($six);
 		border: 1px solid $font-color;
-		padding: 3px;
 	}
 	
 	h1 {
 		line-height: 60px;
 		font-size: 24px;
 		margin: 0;
-		@include column(16)
+		padding: 0;
+		@include column(12);
+		background-color: red;
+				
 	}
+	
+	#search {
+		 background-color: red;
+		@include column(6);
+		height: 60px;
+		@include last;
+	}
+
 }
+
+.sidebar {
+	@include column(5);
+}
+
+#content {
+	@include column(18);
+	@include last;
+}
+
+.item {
+	width: 200px;
+	 background-color: grey;
+	margin: 0 10px 10px 0;
+	float: left;
+	@include border;
+	padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+

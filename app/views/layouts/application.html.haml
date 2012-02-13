@@ -5,15 +5,14 @@
 
   %body{ :class => "#{ controller.controller_name }" }
     = render "toolbar"
-    #container
       
-      = render "header"
-      
-      #main{ :role => "main" }
-        = render "flashes"
-        = yield
-      
-      = render "footer"
-
+    = render "header"
+    
+    #main{ :role => "main" }
+      = render "flashes"
+      = yield
+    
+    = render "footer"
+    
     -# Javascript at the bottom for fast page loading
     = render "javascripts"

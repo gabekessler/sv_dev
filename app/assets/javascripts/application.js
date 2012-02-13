@@ -14,4 +14,29 @@
 //= require jquery_ujs
 //= require h5bp
 //= require authentications
+//= require jquery.infinitescroll
+//= require masonry
 
+var $container = $('#content');
+
+$container.imagesLoaded(function(){
+      $container.masonry({
+        itemSelector: '.item',
+        columnWidth: 50
+      });
+    });
+
+$container.infinitescroll({
+    navSelector  : "div.navigation",            
+    nextSelector : "div.navigation a:first",    
+    itemSelector : "#content div.item",
+    loadingText  : "Loading new products...",
+		bufferPx     : 100
+  },
+	function( newElements ) {
+	        var $newElems = $( newElements ).css({ opacity: 0 });
+	        $newElems.imagesLoaded(function(){
+	          $newElems.animate({ opacity: 1 });
+	          $container.masonry( 'appended', $newElems, true ); 
+	        });
+				});
