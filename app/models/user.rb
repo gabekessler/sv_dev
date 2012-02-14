@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   end
   
   def full_name
-    self.profile.first_name + " " + self.profile.last_name
+    self.profile.first_name ? (self.profile.first_name + " " + self.profile.last_name) : self.email
   end
   
   def facebook_friends

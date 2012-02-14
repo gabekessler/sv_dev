@@ -2,7 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     super
     session[:omniauth] = nil unless @user.new_record?
-    Profile.create(:user_id => user.id)
+    Profile.create(:user_id => @user.id)
   end
   
   private
