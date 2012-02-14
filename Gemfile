@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
-gem 'sqlite3'
+# gem 'sqlite3'
 gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 gem "meta_search",    '>= 1.1.0.pre'
 gem 'mysql2'
@@ -36,6 +36,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'thin'
 end
 
 # To use ActiveModel has_secure_password
