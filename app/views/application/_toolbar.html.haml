@@ -5,5 +5,4 @@
     #login_area
       - if current_user
         = link_to current_user.full_name, profile_url(current_user)
-      - else
-        = link_to "Sign In", new_user_session_url
+      

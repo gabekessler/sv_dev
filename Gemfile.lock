@@ -237,7 +237,6 @@ GEM
       multi_json (>= 1.0.2)
     warden (1.1.0)
       rack (>= 1.0)
-    will_paginate (3.0.3)
 
 PLATFORMS
   ruby
@@ -254,6 +253,7 @@ DEPENDENCIES
   haml-rails
   html5-rails
   jquery-rails
+  kaminari
   meta_search (>= 1.1.0.pre)
   mysql2
   omniauth-facebook
@@ -264,4 +264,3 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   thin
   uglifier (>= 1.0.3)
-  will_paginate

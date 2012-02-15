@@ -26,16 +26,18 @@ $container.imagesLoaded(function(){
     });
 
 $container.infinitescroll({
-    navSelector  : "div.navigation",            
-    nextSelector : "div.navigation a:first",    
+    navSelector  : "div.navigation",
+    nextSelector : "div.navigation a:first",
     itemSelector : "#content div.item",
     loadingText  : "Loading new products...",
-		bufferPx     : 100
+    bufferPx     : 100
   },
-	function( newElements ) {
-	        var $newElems = $( newElements ).css({ opacity: 0 });
-	        $newElems.imagesLoaded(function(){
-	          $newElems.animate({ opacity: 1 });
-	          $container.masonry( 'appended', $newElems, true ); 
-	        });
-				});
+  function( newElements ) {
+    var $newElems = $( newElements ).css({ opacity: 0 });
+    $newElems.imagesLoaded(function(){
+      $newElems.animate({ opacity: 1 });
+      $container.masonry( 'appended', $newElems, true ); 
+    });
+  });
+
+$('input, textarea').placeholder();

@@ -7,86 +7,177 @@
 //-----------------------------------------
 html {}
 body {
+  background-color: $sv_grey;
+}
+
+#body_content {
+  width: 100%;
+  background-color: #fff;
 }
 
 #main {
-	@include container;
-/*	@include grid-background;*/
-	width: 92%;
-	padding: 0;	
+  @include container;
+  // @include grid-background;
+  width: 92%;
+  padding: 0; 
+  background-color: #fff;
+}
+
+.home {
+  background: #fff url(/images/home_body_bkgd.jpg) no-repeat 0 0;
+  height: 900px;
+  
+  #left_column {
+    @include column(14);
+  }
+  
+  #right_column {
+    @include column(10);
+    @include last;
+    
+    #home_text {
+      background: transparent url(/images/home_text.gif) no-repeat 0 0;
+      height: 421px;
+      width: 553px;
+      text-indent: -9999px;
+    }
+    
+    #thank_you_text {
+      background: transparent url(/images/thank_you_text.gif) no-repeat 0 0;
+      height: 421px;
+      width: 553px;
+      text-indent: -9999px;
+    }
+    
+    #email_form_area {
+      background: transparent url(/images/email_form_box.png) no-repeat 0 bottom;
+      height: 81px;
+      width: 504px;
+      padding: 170px 0 0 49px;
+      form {
+        width: 100%;
+
+        .email_field {
+          background: transparent url(/images/email_form_box.gif) no-repeat 0 0;
+          width: 360px;
+          height: 32px;
+          border: none;
+          padding: 5px;
+          line-height: 32px;
+        }
+        
+        .notify_button {
+          background: transparent url(/images/notify_me_button.gif) no-repeat 0 bottom;
+          width: 96px;
+          height: 42px;
+          border: none;
+          text-indent: -9999px;
+          line-height: 0px;
+          padding: 0;
+          cursor: pointer;
+          
+          &:hover {
+            background-position: 0 0;
+          }
+        }
+      }
+    }
+  }
 }
 
 #toolbar_area {
-	width: 100%;
-	background-color: orange;
-	height: 40px;
-	
-	#toolbar {
-		@include container;
-		
-		#logo {
-			@include column($six);			
-		}
-		
-		#login_area {
-			@include column($six);
-			@include float-right;
-			text-align: right;
-		}
-	}
+  width: 100%;
+  background: transparent url(/images/top_slice.jpg) repeat-x 0 0;
+  height: 57px;
+  
+  #toolbar {
+    @include container;
+    
+    #logo {
+      @include column($six);
+       a {
+         text-indent: -9999px;
+         display: block;
+         height: 57px;
+         background: transparent url(/images/sv_basic_logo.jpg) no-repeat 0 0;
+       }
+    }
+    
+    #login_area {
+      @include column($six);
+      @include float-right;
+      text-align: right;
+    }
+  }
 }
 
 #header {
-	@include container;
-	height: 60px;
-	@include prepend-top(10px);	
-	@include append-bottom(10px);	
-	
-	#user_nav {
-		@include column(5);
-		border: 1px solid $font-color;
-	}
-	
-	h1 {
-		line-height: 60px;
-		font-size: 24px;
-		margin: 0;
-		padding: 0;
-		@include column(14);
-	}
-	
-	#search {
-		 background-color: #eee;
-		@include column(5);
-		height: 60px;
-		@include last;
-	}
+  @include container;
+  height: 60px;
+  @include prepend-top(10px); 
+  @include append-bottom(10px); 
+  
+  #user_nav {
+    @include column(5);
+    border: 1px solid $font-color;
+  }
+  
+  h1 {
+    line-height: 60px;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    @include column(14);
+  }
+  
+  #search {
+     background-color: #eee;
+    @include column(5);
+    height: 60px;
+    @include last;
+  }
 }
 
 .sidebar {
-	@include column(4);
+  @include column(4);
 }
 
 #content {
-	@include column(20);
-	@include last;
+  @include column(20);
+  @include last;
 }
 
 .item {
-	width: 205px;
-	 background-color: #eee;
-	margin: 0 15px 15px 0;
-	float: left;
-	@include border;
-	padding: 10px;
+  width: 205px;
+   background-color: #aaa;
+  margin: 0 15px 15px 0;
+  float: left;
+  @include border;
+  padding: 10px;
+}
+
+#left_column {
+  @include column(16);
+  height: 100%;
+}
+
+#right_column {
+  @include column(8);
+  height: 100%;
 }
 
 .navigation {
   visibility: hidden;
 }
 
+#footer_area {
+  width: 100%;
+  border-top: 14px solid $sv_orange;
+  padding-bottom: 100px;
+}
+
 #footer {
-	@include container;
+  @include container;
 }
 
 

@@ -13,7 +13,7 @@ gem 'omniauth-facebook'
 gem 'fb_graph'
 gem 'friendly_id'
 gem 'jquery-rails'
-gem 'will_paginate'
+gem 'kaminari'
 
 
 # Gems used only for assets and not required
