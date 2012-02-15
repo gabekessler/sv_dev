@@ -28,11 +28,11 @@ body {
   height: 900px;
   
   #left_column {
-    @include column(14);
+    @include column(12);
   }
   
   #right_column {
-    @include column(10);
+    @include column(12);
     @include last;
     
     #home_text {
