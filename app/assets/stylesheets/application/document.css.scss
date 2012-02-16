@@ -42,6 +42,14 @@ body {
       text-indent: -9999px;
       float: right;
     }
+
+		#coming_soon_text {
+			background: transparent url(/images/coming_soon.gif) no-repeat 0 0;
+      height: 176px;
+      width: 553px;
+      text-indent: -9999px;
+      float: right;
+		}
     
     #thank_you_text {
       background: transparent url(/images/thank_you_text.gif) no-repeat 0 0;
@@ -52,10 +60,9 @@ body {
     }
     
     #email_form_area {
-      background: transparent url(/images/email_form_box.png) no-repeat 0 bottom;
       height: 81px;
       width: 504px;
-      padding: 170px 0 0 49px;
+      padding: 0 0 0 49px;
       float: right;
       form {
         width: 100%;
@@ -66,7 +73,6 @@ body {
           height: 32px;
           border: none;
           padding: 5px;
-          line-height: 32px;
         }
         
         .notify_button {
