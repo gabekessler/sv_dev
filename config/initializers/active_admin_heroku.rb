@@ -1,5 +1,5 @@
 if Rails.env.production?
-  requie 'fileutils'
+  require 'fileutils'
   FileUtils.mkdir_p(Rails.root.join("tmp", "stylesheets", "admin"))
 
   template_path_one = "#{Gem.loaded_specs['activeadmin'].full_gem_path}/app/assets/stylesheets"
