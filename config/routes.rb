@@ -1,5 +1,5 @@
 ShopVibe::Application.routes.draw do
-
+   break if ARGV.join.include? 'assets:precompile' 
   resources :products
   resources :email_addresses, :only => [:index, :new, :create, :destroy]
 
