@@ -33,8 +33,9 @@ body {
   
   #right_column {
     @include column(12);
-    @include last;
-    
+		@include last;
+		overflow: visible;
+		    
     #home_text {
       background: transparent url(/images/home_text.gif) no-repeat 0 0;
       height: 421px;
