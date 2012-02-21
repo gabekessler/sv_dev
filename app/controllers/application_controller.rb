@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   # def after_sign_in_path_for(resource)
-  #    return request.env['omniauth.origin'] || profile_url(resource) || root_path
-  #  end
+  #     return request.env['omniauth.origin'] || stored_location_for(resource) || profile_url(resource)
+  #   end
       
       
 end

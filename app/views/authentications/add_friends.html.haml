@@ -1,0 +1,20 @@
+- if current_user
+  #friends
+    = render 'add_fb_friends_link'
+- @friends["data"].each do |friend|
+  = friend["name"]
+  = link_to "Invite", root_url, :remote => true, :id => "invite_link_#{friend['id']}"
+  :javascript
+    $("a#invite_link_#{friend['id']}").click(function() {
+      FB.init({ 
+            appId:'311652035552967'
+          });
+      function sendRequestToRecipients() {
+        FB.ui({method: 'apprequests',
+          message: 'My Great Request',
+          to: "#{escape_javascript friend["id"]}"
+        }, requestCallback);
+      };
+      });
+  %br/
+

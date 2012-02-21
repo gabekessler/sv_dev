@@ -30,7 +30,8 @@ class AuthenticationsController < ApplicationController
         @profile = Profile.create(:user_id => user.id)
         user.update_with_omniauth(omniauth)
         flash[:notice] = "Signed in successfully."
-        sign_in_and_redirect(:user, user)
+        sign_in(:user, user)
+        redirect_to authentication_add_friends_url(user)
       else
         # IF UNSUCCESSFUL USER#CREATE SEND TO SIGN UP FORM FOR FIXIN
         session[:omniauth] = omniauth
@@ -46,6 +47,8 @@ class AuthenticationsController < ApplicationController
   end
   
   def add_friends
+    @user = current_user
+    @friends = JSON.parse(open("https://graph.facebook.com/#{@user.authentications.first.uid}/friends?access_token=#{@user.authentications.first.token}").read)
   end
   
 end
