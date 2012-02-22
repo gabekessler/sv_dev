@@ -28,17 +28,21 @@ body {
   height: 600px;
 
   #left_column {
-    @include column(13);
+    @include column(14);
   }
   
   #right_column {
-    @include column(15);
+    @include column(14);
 		@include last;				
 		    
-    #home_text {
+    #home_text, #thank_you_text {
       height: 325px;
 			background: transparent url(/images/home_text.gif) no-repeat 0 0;
 			text-indent: -9999px;
+			
+			h2 {
+			  display: inline;
+			}
 			
 			p {
 				@include font-face("Chalet-London", font-files("fonts/chalet-londonnineteenseventy-webfont.woff", woff, "fonts/Chalet-LondonNineteenSeventy.otf", opentype), "fonts/chalet-londonnineteenseventy-webfont.eot");
@@ -54,9 +58,8 @@ body {
 		}
     
     #thank_you_text {
-      background: transparent url(/images/thank_you_text2.gif) no-repeat 0 0;
+      background: transparent url(/images/thank_you_text.gif) no-repeat 0 0;
       height: 325px;
-      text-indent: -9999px;
     }
     
     #email_form_area {
