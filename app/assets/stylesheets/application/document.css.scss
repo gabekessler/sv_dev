@@ -29,20 +29,22 @@ body {
   height: 900px;
   
   #left_column {
-    @include column(16);
+    @include column(14);
  background-color: red;
 
   }
   
   #right_column {
-    @include column(12);
+    @include column(14);
 		@include last;
 		overflow: visible;
 		 background-color: green;
 		
 		    
     #home_text {
-      height: 421px;
+      height: 325px;
+			background: transparent url(/images/home_text.gif) no-repeat right 0;
+			text-indent: -9999px;
 			
 			p {
 				@include font-face("Chalet-London", font-files("fonts/chalet-londonnineteenseventy-webfont.woff", woff, "fonts/Chalet-LondonNineteenSeventy.otf", opentype), "fonts/chalet-londonnineteenseventy-webfont.eot");
