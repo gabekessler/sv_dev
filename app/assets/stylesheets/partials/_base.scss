@@ -1,18 +1,17 @@
 // Here is where you can define your constants for your application and to configure the blueprint framework.
 // Feel free to delete these if you want keep the defaults:
 
-/*$blueprint-grid-columns: 28;*/
-/*$blueprint-container-size: 1024px;*/
-/*$blueprint-grid-margin: 10px;*/
-$blueprint-liquid-grid-columns: 28;
-$blueprint-liquid-container-width: 99%;
+$blueprint-grid-columns: 28;
+$blueprint-container-size: 1024px;
+$blueprint-grid-margin: 10px;
 
 // Use this to calculate the width based on the total width.
 // Or you can set $blueprint-grid-width to a fixed value and unset $blueprint-container-size -- it will be calculated for you.
 /*$blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;*/
 
 @import "blueprint/liquid";
-
+$blueprint-liquid-grid-columns: 28;
+$blueprint-liquid-container-width: 99%;
 $grid-background-column-width: $blueprint-liquid-grid-width;
 $grid-background-gutter-width: $blueprint-liquid-grid-margin;
 $grid-background-offset: 0;

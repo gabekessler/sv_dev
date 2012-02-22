@@ -5,20 +5,21 @@
 //-----------------------------------------
 // Document styles
 //-----------------------------------------
-html {}
+
+
+html {
+
+}
 body {
   background-color: $sv_grey;
 }
 
 #body_content {
-  width: 100%;
   background-color: #fff;
 }
 
 #main {
   @include container;
-  // @include grid-background;
-  width: 92%;
   padding: 0; 
   background-color: #fff;
 }
@@ -28,49 +29,48 @@ body {
   height: 900px;
   
   #left_column {
-    @include column(12);
+    @include column(16);
+ background-color: red;
+
   }
   
   #right_column {
     @include column(12);
 		@include last;
 		overflow: visible;
+		 background-color: green;
+		
 		    
     #home_text {
-      background: transparent url(/images/home_text.gif) no-repeat 0 0;
       height: 421px;
-      width: 553px;
-      text-indent: -9999px;
-      float: right;
+			
+			p {
+				@include font-face("Chalet-London", font-files("fonts/chalet-londonnineteenseventy-webfont.woff", woff, "fonts/Chalet-LondonNineteenSeventy.otf", opentype), "fonts/chalet-londonnineteenseventy-webfont.eot");
+				font-family: Chalet-London;
+				font-size: 1.5em;
+			}
     }
 
 		#coming_soon_text {
 			background: transparent url(/images/coming_soon.png) no-repeat 0 0;
       height: 176px;
-      width: 553px;
       text-indent: -9999px;
-      float: right;
 		}
     
     #thank_you_text {
       background: transparent url(/images/thank_you_text.gif) no-repeat 0 0;
       height: 421px;
-      width: 553px;
       text-indent: -9999px;
-      float: right;
     }
     
     #email_form_area {
       height: 81px;
-      width: 504px;
       padding: 0 0 0 49px;
-      float: right;
       form {
         width: 100%;
 
         .email_field {
           background: transparent url(/images/email_form_box.gif) no-repeat 0 0;
-          width: 360px;
           height: 32px;
           border: none;
           padding: 5px;
@@ -96,12 +96,12 @@ body {
 }
 
 #toolbar_area {
-  width: 100%;
   background: transparent url(/images/top_slice.jpg) repeat-x 0 0;
   height: 57px;
   
   #toolbar {
-    @include container;
+    width: 95%;
+		margin: 0 auto;
     
     #logo {
       @include column($six);
