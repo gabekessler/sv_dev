@@ -3,8 +3,8 @@
     #logo
       = link_to "ShopVibe", root_url, :class => :logo
     #login_area
-      - if current_user
-        = link_to current_user.full_name, profile_url(current_user)
-      - else
-        = link_to "login", new_user_session_url
+      -# if current_user
+        =# link_to current_user.full_name, profile_url(current_user)
+      -# else
+        =# link_to "login", new_user_session_url
       
