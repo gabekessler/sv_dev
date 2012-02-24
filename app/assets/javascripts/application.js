@@ -30,7 +30,7 @@ $container.infinitescroll({
     nextSelector : "div.navigation a:first",
     itemSelector : "#content div.item",
     loadingText  : "Loading new products...",
-    bufferPx     : 100
+    bufferPx     : 0
   },
   function( newElements ) {
     var $newElems = $( newElements ).css({ opacity: 0 });

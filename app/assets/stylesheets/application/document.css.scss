@@ -120,13 +120,15 @@ body {
 }
 
 #header {
-  @include container;
+  width: 95%;
+	margin: 0 auto;
   height: 60px;
-  @include prepend-top(10px); 
   @include append-bottom(10px); 
   
   #user_nav {
-    @include column(5);
+    width: 250px;
+		float: left;
+		height: 58px;
     border: 1px solid $font-color;
   }
   
@@ -135,33 +137,32 @@ body {
     font-size: 24px;
     margin: 0;
     padding: 0;
-    @include column(14);
+    float: left;
+		padding-left: 20px;
   }
   
   #search {
      background-color: #eee;
-    @include column(5);
+    width: 200px;
+		float: right;
     height: 60px;
-    @include last;
   }
 }
 
 .sidebar {
-  @include column(4);
+  @include column(7);
 }
 
 #content {
-  @include column(20);
+  @include column(21);
   @include last;
 }
 
 .item {
-  width: 205px;
+  @include column(6);
    background-color: #aaa;
-  margin: 0 15px 15px 0;
-  float: left;
-  @include border;
-  padding: 10px;
+  margin: 0 10px 15px 0;
+	padding: 10px;
 }
 
 #left_column {

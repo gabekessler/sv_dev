@@ -16,8 +16,8 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @profile = @user.profile
-    @products = Product.paginate(:page => params[:page], :per_page => 15)
-
+    @products = Product.page params[:page]
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @profile }
